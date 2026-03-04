@@ -1,0 +1,23 @@
+<nav>
+    <div class="logo">
+
+        <img src="https://cdn.vectorstock.com/i/500p/58/71/healthcare-hospital-logo-clinic-doctor-vector-29695871.jpg" alt="HOSPITAL" width="130px" height="50px" style="border-radius: 20px 5px 20px 5px;">
+
+        {% if request.user.is_authenticated %}    
+        <!-- if user is logged in -->
+            <div class="logo-1">
+                <a href="{% url 'profile' %}"><button>Profile</button></a>
+                <a href="{% url 'patient_list' %}"><button>Patient List</button></a>
+                <a href="{% url 'signout' %}"><button>Logout</button></a>
+            </div>    
+
+        {% else %}
+
+            <div class="logo-1">
+                <a href="{% url 'signup' %}"><button>Register</button></a>
+                <a href="{% url 'signin' %}"><button>Login</button></a>
+            </div>
+
+        {% endif %}
+    </div>
+</nav>

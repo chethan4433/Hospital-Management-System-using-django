@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h2 style="width: fit-content; margin-top: 150px; padding: 10px 20px;">Are you sure you want to delete <br><hr> this record - {{ data.patient }}? 🧐</h2>
+
+<br><br>
+<form method="POST" style="display: inline-block; vertical-align: middle; padding: 0%;  margin-right: 10px;">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+<a href="{% url 'patient_list' %}"><button style="vertical-align: middle;">No, cancel</button></a>
+
+{%  endblock%}

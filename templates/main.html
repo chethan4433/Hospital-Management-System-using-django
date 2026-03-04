@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://icons8.com/icon/7695/search">
+</head>
+<body>
+    {% include 'nav.html' %}
+
+    {% if messages %}
+    <div id="message-box">
+        {% for i in messages %}
+            <p id="message-content">{{ i }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <center>
+        {% block content %}
+
+        {% endblock %}
+    </center>
+
+    <script>
+        setTimeout(()=>{
+            document.getElementById('message-box').style.display='none';
+        }, 3000)
+    </script>
+</body>
+</html>
